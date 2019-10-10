@@ -1,4 +1,7 @@
 from django.shortcuts import render
+from .models import Comments
+from .forms import CommentForm
+from django.contrib import messages
 
 # Create your views here.
 def home(request):
@@ -11,4 +14,16 @@ def services(request):
     return render(request,'services.html',{})
 
 def contactus(request):
-    return render(request,'contactus.html',{})
+
+    if request.method == 'POST':
+        form = CommentForm(request.POST or None)
+
+        if form.is_valid():
+            form.save()
+            all_items = Comments.objects.all
+            messages.success(request,('Comment has successfully been added!'))
+            return render(request,'contactus.html',{'all_items' : all_items})
+
+    else:
+        all_items = Comments.objects.all
+        return render(request,'contactus.html',{'all_items' : all_items})
