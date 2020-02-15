@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  {% block title %}   <title>Pramartha | Careers</title> {% endblock %}
+</head>
+<body>
+
+  {% block careers %}
+
+  <div class="card">
+  <div class="card-body">
+
+    <nav id="navbar-example2" class="navbar navbar-light bg-light">
+      <a class="navbar-brand" href="#"></a>
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link" href="#fat">@Opportunities</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#mdo">@Internship</a>
+        </li>
+      </ul>
+    </nav>
+    <div data-spy="scroll" data-target="#navbar-example2" data-offset="0">
+<br>
+        <img src="../../static/images/careers.jpg" alt="">
+
+      <br><br>
+
+      <h4 id="fat">@Opportunities</h4>
+      <p>We are constantly looking for creative, insightful people to help us solve problems.<br>Send your resume to <a href="mailto:contact@pramartha.com" rel="nofollow" target="_blank">contact@pramartha.com</a></p>
+
+      <br><br>
+
+      <h4 id="mdo">@Internship</h4>
+      <p>Our internship program is designed to offer short-term internship opportunities.<br>
+The project will be essentially in one of the following domain like Finance/ Investments/ Consulting/ Operations and Systems/ Actuarial/ Risk Management.The Internship Program is aimed at giving interns on the job training.During the internship, interns will be assessed on their capabilities, knowledge, ability to adapt, professionalism, and capacity to learn.
+<br>The exposure gained will enable the interns to understand the practical aspects of the domain they have chosen.<br>Send your resume to <a href="mailto:contact@pramartha.com" rel="nofollow" target="_blank">contact@pramartha.com</a></p>
+    </div>
+
+
+  </div>
+</div>
+
+
+
+  {% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  {% block title %}   <title>Pramartha | ContactUs</title> {% endblock %}
+</head>
+<body>
+  {% block contactus %}
+  <h4>CONTACT US</h4>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">CORPORATE OFFICES:</h5>
+          <p class="card-text">
+            INDIA <br>
+            No 54/11, 3rd Floor, 46th Cross, Near Sangam Circle, Jayanagar 8th Block,       <br>        Bangalore - 560082. Contact Number: 8050012542
+            <br>
+            GLOBAL OFFICES
+            <br>
+            UNITED STATES <br>
+            No 2, Ravinia Drive Suite 500, Atlanta, Georgia 30346, USA <br>
+            <br>
+            MALAYASIA <br>
+            LOT 9.00C, 9th Floor, Wisma Central, Jalan Ampang 50450, Kuala Lumpur. <br>
+            <br>
+            SOUTH AFRICA <br>
+            577 Carl Street, Pretoria West, GAUTENG 0183, South Africa <br>
+            <br>
+            JAPAN <br>
+            2-32-1 Mukougaoka, Bunkyo-ku, Tokyo 113-0023,  Japan <br>
+            <br>
+            Email: contact@pramartha.com </p>
+          </div>
+        </div>
+      </div>
+      {% if all_items %}
+
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">ALL COMMENTS:</h5>
+
+            <ul>
+              {% for eachi in all_items %}
+
+              <li> <p>Comment :=> </p> {{ eachi.comment }} <br><br> <p>Wanted it to be pubished :=> </p> {{ eachi.topublish }}  </li>
+
+              {% endfor %}
+            </ul>
+
+            <br>
+
+            {% if messages %}
+
+            {% for msg in messages %}
+            
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              <strong>{{ msg }}</strong> !!!!
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            {% endfor %}
+
+            {% endif %}
+            <br>
+            <img src="../../static/images/staticimage.jpg" alt="">
+
+          </div>
+        </div>
+      </div>
+
+      {% endif %}
+    </div>
+
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <p>Leave a Comment:</p>
+
+          <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="formGroupExampleInput">Comment</label>
+              <input type="textarea" class="form-control" id="formGroupExampleInput" placeholder="Example input" name="comment">
+            </div>
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1" name="topublish">
+              <label class="form-check-label" for="exampleCheck1" >Publish my comment</label>
+            </div>
+            <button type="submit" class="btn btn-secondary">Submit!</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+
+    {% endblock %}
+  </body>
+  </html>
